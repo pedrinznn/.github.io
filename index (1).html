@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NovaPulse — Marketing Digital que Cresce</title>
+  <meta name="description" content="Agência de marketing digital com foco em crescimento, tráfego, conteúdo e conversão para TikTok e Instagram." />
+  <meta name="theme-color" content="#6d28d9" />
+  <style>
+    :root {
+      --bg: #080814;
+      --bg-soft: rgba(255,255,255,0.04);
+      --card: rgba(255,255,255,0.06);
+      --line: rgba(255,255,255,0.12);
+      --text: #f8f7ff;
+      --muted: #b7b4cb;
+      --primary: #7c3aed;
+      --secondary: #2563eb;
+      --accent: #22d3ee;
+      --glow: 0 0 60px rgba(124,58,237,0.35);
+      --radius: 24px;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(124,58,237,0.22), transparent 25%),
+        radial-gradient(circle at 85% 15%, rgba(37,99,235,0.20), transparent 22%),
+        radial-gradient(circle at 75% 75%, rgba(34,211,238,0.10), transparent 18%),
+        linear-gradient(10deg, #090914 0%, #0b1020 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(8,8,20,0.55);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+
+    .brand-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+      box-shadow: var(--glow);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-cta {
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      font-weight: 700;
+      box-shadow: var(--glow);
+    }
+
+    .hero {
+      padding: 72px 0 32px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      color: #d9d6ee;
+      font-size: 0.88rem;
+    }
+
+    h1 {
+      margin: 18px 0 18px;
+      font-size: clamp(2.4rem, 7vw, 5.2rem);
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff 0%, #c4b5fd 35%, #67e8f9 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 0 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 26px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-weight: 700;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); opacity: 0.96; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      box-shadow: var(--glow);
+      border: 0;
+    }
+    .btn-secondary { background: rgba(255,255,255,0.04); }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .stat {
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.5rem;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .visual {
+      position: relative;
+      min-height: 520px;
+    }
+
+    .panel {
+      position: absolute;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      backdrop-filter: blur(16px);
+      border-radius: 26px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+    }
+
+    .dashboard-main {
+      inset: 58px 30px 40px 40px;
+      padding: 22px;
+    }
+
+    .chart {
+      height: 200px;
+      border-radius: 18px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)),
+        repeating-linear-gradient(to right, rgba(255,255,255,0.05), rgba(255,255,255,0.05) 1px, transparent 1px, transparent 52px),
+        repeating-linear-gradient(to top, rgba(255,255,255,0.05), rgba(255,255,255,0.05) 1px, transparent 1px, transparent 44px);
+      position: relative;
+      overflow: hidden;
+      margin-top: 18px;
+    }
+
+    .chart::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 18px 0;
+      height: 120px;
+      background: linear-gradient(180deg, rgba(103,232,249,0), rgba(103,232,249,0.15));
+      clip-path: polygon(0 100%, 8% 88%, 20% 82%, 33% 68%, 47% 72%, 59% 50%, 74% 42%, 88% 18%, 100% 0, 100% 100%);
+    }
+
+    .chart::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 18px;
+      height: 3px;
+      background: linear-gradient(90deg, #7c3aed, #67e8f9);
+      clip-path: polygon(0 100%, 8% 88%, 20% 82%, 33% 68%, 47% 72%, 59% 50%, 74% 42%, 88% 18%, 100% 0, 100% 100%, 0 100%);
+      filter: drop-shadow(0 0 10px rgba(103,232,249,0.65));
+    }
+
+    .mini-card, .floating-pill {
+      padding: 16px 18px;
+      border-radius: 22px;
+    }
+
+    .mini-card {
+      top: 16px;
+      right: 0;
+      width: 180px;
+    }
+
+    .floating-pill {
+      left: 0;
+      bottom: 24px;
+      width: 180px;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .kpi {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .section {
+      padding: 56px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .section h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .section p.lead {
+      margin: 10px 0 0;
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+
+    .icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(124,58,237,0.25), rgba(34,211,238,0.2));
+      border: 1px solid rgba(255,255,255,0.12);
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      font-size: 1.35rem;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .metric {
+      padding: 26px 22px;
+      border-radius: var(--radius);
+      background: var(--card);
+      border: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .quote {
+      font-size: 1rem;
+      color: #e7e4f6;
+      margin-bottom: 16px;
+    }
+
+    .author {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .cta-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+      padding: 24px;
+      border-radius: 32px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at top right, rgba(124,58,237,0.22), transparent 30%),
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .contact-item {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+    }
+
+    input, textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      border-radius: 18px;
+      padding: 15px 16px;
+      font: inherit;
+      outline: none;
+    }
+
+    textarea { min-height: 130px; resize: vertical; }
+    input::placeholder, textarea::placeholder { color: #9d9ab4; }
+
+    footer {
+      padding: 28px 0 50px;
+      color: var(--muted);
+    }
+
+    .footer-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .cta-box,
+      .grid-3,
+      .testimonials,
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stats,
+      .kpi-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .visual {
+        min-height: 420px;
+      }
+
+      .dashboard-main {
+        inset: 40px 12px 28px 12px;
+      }
+
+      .mini-card {
+        right: 12px;
+      }
+
+      .floating-pill {
+        left: 12px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-links { display: none; }
+      .hero { padding-top: 42px; }
+      .hero-stats,
+      .kpi-grid { grid-template-columns: 1fr; }
+      .section { padding: 42px 0; }
+      .section-head { align-items: start; flex-direction: column; }
+      .footer-wrap { flex-direction: column; align-items: flex-start; }
+      .visual {
+        min-height: 380px;
+      }
+      .dashboard-main {
+        padding: 16px;
+        border-radius: 22px;
+      }
+      .mini-card,
+      .floating-pill {
+        width: 150px;
+        padding: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-wrap">
+      <a class="brand" href="#inicio" aria-label="NovaPulse home">
+        <span class="brand-badge"></span>
+        <span>NovaPulse</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#servicos">Serviços</a>
+        <a href="#resultados">Resultados</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#contato">Contato</a>
+      </div>
+
+      <a class="nav-cta" href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">⚡ Marketing que acelera sua presença digital</span>
+          <h1>
+            Cresça no <span class="gradient-text">TikTok e Instagram</span>
+            com estratégia, criatividade e performance.
+          </h1>
+          <p>
+            Criamos campanhas, conteúdo e funis de conversão para marcas e negócios que querem sair do amadorismo e vender com autoridade nas redes sociais.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer">Quero mais clientes</a>
+            <a class="btn btn-secondary" href="#servicos">Ver serviços</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <strong>+240%</strong>
+              <span>Mais alcance em campanhas sociais</span>
+            </div>
+            <div class="stat">
+              <strong>3.8x</strong>
+              <span>Retorno médio em funis otimizados</span>
+            </div>
+            <div class="stat">
+              <strong>15 dias</strong>
+              <span>Para lançar estratégia e criativos</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="visual" aria-hidden="true">
+          <div class="panel dashboard-main">
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+              <div>
+                <div style="color:#d7d2f1; font-weight:700;">Dashboard de Performance</div>
+                <div style="color:var(--muted); font-size:0.95rem;">Campanhas, engajamento e crescimento</div>
+              </div>
+              <div style="padding:8px 12px; border-radius:999px; background:rgba(34,211,238,0.12); border:1px solid rgba(34,211,238,0.24); color:#a5f3fc; font-weight:700;">+28% este mês</div>
+            </div>
+            <div class="chart"></div>
+            <div class="kpi-grid">
+              <div class="kpi"><strong>1.2M</strong><span style="color:var(--muted)">Views</span></div>
+              <div class="kpi"><strong>42k</strong><span style="color:var(--muted)">Cliques</span></div>
+              <div class="kpi"><strong>8.7%</strong><span style="color:var(--muted)">Conversão</span></div>
+            </div>
+          </div>
+          <div class="panel mini-card">
+            <div style="color:var(--muted); font-size:0.86rem;">Crescimento semanal</div>
+            <div style="font-size:2rem; font-weight:800; line-height:1; margin:10px 0 6px;">+74%</div>
+            <div style="color:#a5f3fc; font-weight:700;">Engajamento orgânico</div>
+          </div>
+          <div class="panel floating-pill">
+            <div style="color:var(--muted); font-size:0.86rem;">Custo por lead</div>
+            <div style="font-size:1.7rem; font-weight:800; line-height:1; margin:8px 0 6px;">-32%</div>
+            <div style="color:#c4b5fd; font-weight:700;">Mais eficiência</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="servicos">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Serviços para escalar sua marca</h2>
+            <p class="lead">Do posicionamento ao tráfego pago, montamos uma operação digital com foco em atenção, conversão e crescimento consistente.</p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="icon">🚀</div>
+            <h3>Gestão de Tráfego</h3>
+            <p>Anúncios estratégicos para gerar leads, vendas e crescimento previsível em Meta, TikTok e Google.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🎥</div>
+            <h3>Conteúdo para Reels e TikTok</h3>
+            <p>Roteiros, criativos e direção visual pensados para retenção, alcance e autoridade nas redes sociais.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">📈</div>
+            <h3>Funil e Conversão</h3>
+            <p>Páginas, ofertas e estrutura de comunicação para transformar atenção em clientes reais.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="resultados">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Resultados que falam por si</h2>
+            <p class="lead">Nossas estratégias combinam velocidade de execução, leitura de dados e criatividade para crescer sem desperdiçar verba.</p>
+          </div>
+        </div>
+
+        <div class="metrics">
+          <div class="metric">
+            <strong>+180%</strong>
+            <span>Crescimento em leads</span>
+          </div>
+          <div class="metric">
+            <strong>+320%</strong>
+            <span>Mais visualizações qualificadas</span>
+          </div>
+          <div class="metric">
+            <strong>4.6x</strong>
+            <span>ROAS em campanhas otimizadas</span>
+          </div>
+          <div class="metric">
+            <strong>-27%</strong>
+            <span>Redução no custo de aquisição</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="depoimentos">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Marcas que confiaram no processo</h2>
+            <p class="lead">Posicionamento claro, conteúdo que prende atenção e campanhas que transformam audiência em vendas.</p>
+          </div>
+        </div>
+
+        <div class="testimonials">
+          <article class="card">
+            <div class="quote">“Em poucas semanas já sentíamos a diferença. Melhoramos a imagem da marca e começamos a receber leads todos os dias.”</div>
+            <div class="author">Ana Costa — Loja de Moda</div>
+          </article>
+
+          <article class="card">
+            <div class="quote">“O conteúdo ficou com cara de marca grande. O tráfego começou a performar e o custo por lead caiu muito.”</div>
+            <div class="author">Rafael Lima — Infoprodutor</div>
+          </article>
+
+          <article class="card">
+            <div class="quote">“A operação ficou simples, rápida e objetiva. Hoje a gente entende o que funciona e consegue escalar com segurança.”</div>
+            <div class="author">Juliana Alves — Clínica Estética</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contato">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <h2>Pronto para crescer com estratégia?</h2>
+            <p class="lead">Fale com a gente e receba uma análise inicial da sua presença digital com sugestões de melhoria para posicionamento, conteúdo e conversão.</p>
+            <div class="contact-list">
+              <div class="contact-item">WhatsApp: (18) 99709-2132</div>
+              <div class="contact-item">E-mail: pdrzera2303@gmail.com</div>
+              <div class="contact-item">Atendimento online para todo o Brasil</div>
+            </div>
+          </div>
+
+          <form>
+            <input type="text" placeholder="Seu nome" aria-label="Seu nome" />
+            <input type="email" placeholder="Seu melhor e-mail" aria-label="Seu melhor e-mail" />
+            <input type="text" placeholder="Seu Instagram ou empresa" aria-label="Seu Instagram ou empresa" />
+            <textarea placeholder="Me conte rapidamente o que você precisa" aria-label="Mensagem"></textarea>
+            <button class="btn btn-primary" type="submit">Quero uma análise</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <div>© 2026 NovaPulse. Todos os direitos reservados.</div>
+      <div>Marketing digital com foco em inovação, velocidade e resultados.</div>
+    </div>
+  </footer>
+</body>
+</html>
